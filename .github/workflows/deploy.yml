@@ -42,11 +42,11 @@ jobs:
           FILTER: ${{ github.event.inputs.filter }}
         shell: bash {0}
         run: |
-            if [[ -n "$FILTER" && ! "$FILTER" =~ ^@paypal/ ]]; then
-              echo "Error: Only @paypal packages are allowed."
-              exit 1
-            fi
-            npm run upgrade -- --MODULE="${FILTER}"
+          if [[ -n "$FILTER" && ! "$FILTER" =~ ^@paypal/ ]]; then
+            echo "Error: Only @paypal packages are allowed."
+            exit 1
+          fi
+          npm run upgrade -- --MODULE="${FILTER}"
 
       - name: Publish to npm
         run: npm run release
